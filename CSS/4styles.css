@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* 
+cima - top
+baixo - bottom
+esquerda - left
+direita - right
+*/
+
+body {
+    background-image: url("imgs/logo.cristo.jpg");
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+}
+
+.main  {
+    padding-top: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+    padding-bottom: 100px;
+}
+
+.caixa-conteudo {
+    width: 100%; 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row; 
+       
+}
+
+.caixa-textos {
+    width: 600px;
+}
+
+h2 {
+    color: #fff;
+    font-weight: 600;
+    font-size: 50px;
+}
+
+.texto-s {
+    color: #591d1d;
+    font-weight: 600;
+    font-size: 70px;
+}
+
+.paragrafo {
+    font-size: 20px;
+    color: #fff;
+}
+
+button {
+
+    background-color: #000000ca;
+    color: #fff;
+    margin-top: 30px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 40px;
+    transition: 0.5s;
+}
+
+button:hover {
+    background-color: #1d1f1e9e;
+    padding: 15px;
+    transition: 0.5s;
+}
+
+.caixa-imagem {
+    width: 600px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.imagem-logo {
+    width: 300px;
+}
+
+.caixa-menu {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+}
+
+.botao-menu {
+    width: 80px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.circulo {
+    background-color: #000000;
+    width: 100%;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    clip-path: circle(500px at right 900px);
+    z-index: -1;
+}
+
+
+
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+}
+
+.container {
+  position: relative;
+  width: 80%;
+  height: 80%;
+}
+
+#fundo {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  transition: background-image 0.5s ease-in-out;
+}
+
+button {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  background: #fff;
+}

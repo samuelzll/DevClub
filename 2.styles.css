@@ -1,0 +1,61 @@
+.vo {
+    font-size: 16px;
+}
+
+.pai {
+    width: 50vw;
+    height: 50vh;
+    background-color: #a00ba5;
+    color: #000000;
+    font-size: 2em;
+    border: 10px dashed #880000;
+}
+
+.filho {
+    width: 50%;
+    height: 50%;
+    background-color: #000000;
+    color: #441212;
+    font-size: 2rem;
+    border: 10px solid #d30000;
+}
+
+a::before {
+    content: "🚀";
+    background-color:forestgreen;
+}
+
+.pai {
+    height: calc(100vh - 200px);
+    width: calc((50vw + 200px) - 200px);
+    background: red;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Relativos, para se adaptar a diferentes tamanhos de tela
+    como celular, tablet, computador e etc.
+    quais sao os elementos relativos?
+
+    % calcula o tamanho relativo ao elemento pai
+    vw (view width) 1vw é 1% da largura da janela do navegador
+    vh (view height) 1vh é 1% da altura da janela do navegador
+    em é uma unidade relativa ao elemento pai
+    rem é uma unidade relativa ao elemento raiz
+    */
