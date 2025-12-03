@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Jolly+Lodger&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="9.styles.css">
+    <title>Estilo MK</title>
+</head>
+
+<body>
+    <header>
+        <img src="imgs/LogoMK.jpg" class="img-logo">
+    </header>
+
+<header class="informacoes">
+    <a onclick="toggleInfo('informacoes')">informacoes</a>
+    <a onclick="toggleInfo('agendar')">Agendar</a>
+</header>
+
+<!-- ÁREAS QUE VÃO APARECER AO CLICAR -->
+<div id="informacoes" class="info-box">📞 Whatsapp: (85) 99788-0816 <br> 🕢 Ter - Sáb: 09h às 19h <br> 💰 Corte: R$30 / Barba: R$30 / Nevou: R$100 </div>
+
+<!-- AGENDAR: formulário avançado -->
+<div id="agendar" class="info-box">
+  <h2>Agendar Horário</h2>
+
+  <label>Escolha o Barbeiro</label>
+
+<div id="listaBarbeiros" class="barbeiros-container">
+
+  <div class="barbeiro-card" data-barbeiro="Lisboa - MK">
+    <img src="imgs/barbeiro1.jpeg">
+    <p>Lisboa - MK</p>
+  </div>
+
+  <div class="barbeiro-card" data-barbeiro="Marcos - MC">
+    <img src="imgs/barbeiro2.jpeg">
+    <p>Marcos - MC</p>
+  </div>
+
+</div>
+
+<input type="hidden" id="barbeiroSelecionado">
+
+  <label for="nomeAgendamento">Seu nome</label>
+  <input id="nomeAgendamento" type="text" placeholder="Nome e sobrenome">
+
+  <label for="telefoneAgendamento">Telefone (para confirmar)</label>
+  <input id="telefoneAgendamento" type="tel" placeholder="(85) 9xxxx-xxxx">
+
+  <label for="servicoAgendamento">Serviço</label>
+  <select id="servicoAgendamento">
+    <option value="Corte">Corte</option>
+    <option value="Barba">Barba</option>
+    <option value="Corte+Barba">Corte + Barba</option>
+  </select>
+
+  <label for="dataAgendamento">Data</label>
+  <input id="dataAgendamento" type="date">
+
+  <label for="horaAgendamento">Horário disponível</label>
+  <select id="horaAgendamento">
+    <option value="">Selecione a data primeiro</option>
+  </select>
+
+  <button id="btnConfirmarAgendamento">Confirmar e Enviar (WhatsApp)</button>
+  <p id="resultadoAgendamento"></p>
+
+  <hr style="margin:12px 0; border-color: #ffffff22;">
+
+  <button id="btnAbrirPainel" style="background:transparent;border:1px solid #B68820;color:#B68820;padding:8px;border-radius:8px;cursor:pointer;">
+    Horarios Agendados (Barbeiro)
+  </button>
+
+</div>
+
+<!-- PAINEL DO BARBEIRO (oculto por padrão) -->
+<div id="painelAgendamentos" class="info-box" style="display:none; max-height: 60vh; overflow:auto;">
+  <h2>Agendamentos</h2>
+  <div id="listaAgendamentos">
+    <!-- itens serão inseridos aqui -->
+  </div>
+  <p style="font-size:13px;color:#ddd;margin-top:10px;">Use o botão excluir para liberar horário.</p>
+</div>
+
+
+
+
+    <h1 class="titulo">Barbearia Estilo MK</h1>
+
+    <section class="cortes-section">
+  <h2 class="titulo-cortes">Nossos Cortes ⤵</h2>
+  <button class="btn-ver-imagens" onclick="abrirGaleria()">VER IMAGENS</button>
+</section>
+
+<!-- MODAL GALERIA – VERSÃO GRID -->
+<div id="modalGaleria" class="modal-galeria">
+    <span class="fechar" onclick="fecharModal()">&times;</span>
+
+    <div class="galeria-grid">
+        <img src="imgs/corte1.jpg" onclick="abrirSlide(0)">
+        <img src="imgs/corte2.jpg" onclick="abrirSlide(1)">
+        <img src="imgs/corte3.jpg" onclick="abrirSlide(2)">
+        <img src="imgs/corte4.jpg" onclick="abrirSlide(3)">
+        <img src="imgs/corte5.jpg" onclick="abrirSlide(4)">
+    </div>
+</div>
+
+<!-- SLIDE (CONTINUA O MESMO QUE VOCÊ JÁ TINHA) -->
+<div id="modalSlide" class="modal-galeria">
+    <span class="fechar" onclick="fecharSlide()">&times;</span>
+
+    <span class="anterior" onclick="mudarImagem(-1)">❮</span>
+    <span class="proximo" onclick="mudarImagem(1)">❯</span>
+
+    <div class="modal-conteudo">
+        <img class="imagem-slide" src="imgs/corte1.jpg">
+        <img class="imagem-slide" src="imgs/corte2.jpg">
+        <img class="imagem-slide" src="imgs/corte3.jpg">
+        <img class="imagem-slide" src="imgs/corte4.jpg">
+        <img class="imagem-slide" src="imgs/corte5.jpg">
+    </div>
+</div>
+
+ <div class="apresentacao1">
+
+    <div class="video-box">
+        <video controls width="400">
+            <source src="imgs/videosMK.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="texto-box">
+        <h1>O que temos por aqui?</h1>
+        <h2>Um espaço moderno, atendimento diferenciado e cortes que valorizam seu estilo.</h2>
+    </div>
+</div>
+
+ <div class="apresentacao2">
+    <div class="box">
+        <h1>Barba</h1>
+        <p>Desenhada, completa, disfarce de fios brancos, lavagem e hidratação. Tudo para deixar sua preciosa barba sempre perfeita.</p>
+    </div>
+
+    <div class="box">
+        <h1>Cabelo</h1>
+        <p>Degradê, social, todo na tesoura, raspar na máquina, selagem térmica, hidratação e disfarce de brancos. Não vai faltar nada para o visual ficar em dia!</p>
+    </div>
+</div>
+
+</body>
+    <script src="4scripts.js"></script>
+</html>

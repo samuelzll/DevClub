@@ -106,3 +106,72 @@ button:hover {
     clip-path: circle(500px at right 900px);
     z-index: -1;
 }
+
+/* Estilos adicionais/ adaptação para celular */
+ 
+
+@media screen and (max-width: 900px) {
+   .caixa-conteudo {
+    width: 100%;
+    height: 60%;
+    padding: 0;
+    margin: 0;
+   } 
+
+   .caixa-textos {
+    display: block;
+    height: auto;
+    width: 300%;
+    position: static;
+    padding: 10px;
+   }
+
+   .texto-starbacks {
+    font-size: 40px;
+   }
+
+   .imagem-copo {
+    position: relative;
+    max-width: 70px;
+    top: 350px;
+   }
+
+   .logo {
+    position: relative;
+    left: -50px;
+    max-width: 90%;
+   }
+
+   .caixa-menu {
+    position: relative;
+    margin-top: 70px;
+    left: -50px;
+    max-width: 100%;
+   }
+
+   .circulo {
+    clip-path: circle(200px at right 900px);
+   }
+
+   button {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+   }
+
+   h2 {
+    font-size: 36px;
+    line-height: 52px;
+    width: auto;
+    margin: 20px 0 0 0;
+    text-align: center;
+   }
+
+   .true {
+    position: relative;
+    left: 50px;
+    max-width: 90%;
+   }
+}

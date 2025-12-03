@@ -1,21 +1,20 @@
-// Lista de imagens
-const imagens = [
-  'imgs/1img.jpg',
-  'imgs/2img.jpg',
-  'imgs/3img.jpg',
-  'imgs/4img.jpg',
-  'imgs/5img.jpg'
-];
+    const imagens = ["imgs/1img.jpg", "imgs/2img.jpg", "imgs/3img.jpg", "imgs/4img.jpg"];
+    let indice = 0;
+    const img = document.getElementById("imagem");
 
-let indice = 0;
-const fundo = document.getElementById('imgs/4img.jpg');
-const botao = document.getElementById('imgs/5img.jpg');
+    function trocarImagem() {
+      indice++;
+      if (indice >= imagens.length) {
+        indice = 0; // volta para a primeira imagem
+      }
 
-// Define a primeira imagem
-fundo.style.backgroundImage("caixa-menu") = `url(${imagens[indice]})`;
+      // Efeito de transição suave
+      img.style.opacity = 0;
+      setTimeout(() => {
+        img.src = imagens[indice];
+        img.style.opacity = 1;
+      }, 500);
+    }
 
-// Ao clicar no botão, troca para a próxima imagem
-botao.addEventListener('click', () => {
-  indice = (indice + 1) % imagens.length; // volta ao início quando chegar na última
-  fundo.style.backgroundImage = 'imgs/4img.jpg)';
-});
+    // Troca a imagem a cada 3 segundos
+    setInterval(trocarImagem, 3000);

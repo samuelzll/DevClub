@@ -1,68 +1,48 @@
 <!DOCTYPE html>
-<!-- USANDO A VERSÃO MAIS NOVA DO HTML -->
-
-<!-- language - idioma / lingua -->
 <html lang="pt-br">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="1scripts.js"></script>
+  <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
+  <link rel="stylesheet" href="4styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="4styles.css" />
   <title>Cristo</title>
 </head>
 
+  <div class ="titulo">
+    <h2>Provérbios 16:3: Consagre ao Senhor tudo o que você faz, e os seus planos serão bem-sucedidos</h2>
+  </div>
+
+  <div class ="texto1">
+    <p>Josué 1:9: Sejam fortes e corajosos! Não tenham medo, porque o Senhor, seu Deus, estará com você por onde você andar</p>
+  </div>
+
+  <div class ="texto2">
+    <p>Isaías 41:10: Não tenha medo, pois estou com você; não desanime, pois sou o seu Deus. Eu o fortaleço e o ajudo; eu o seguro com a minha mão</p>
+  </div>
+
 <body>
-  <div class="main">
-    <div class="circulo"></div>
 
-
-    <div class="caixa-conteudo">
-      <div style="
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-          ">
-        <div class="caixa-textos">
-          <h2>
-            Ele fortalece o cansado e multiplica as forças ao que não tem
-            nenhum vigor. - Isaías 40:29
-            <span class="texto-s"></span>
-          </h2>
-          <p class="paragrafo">
-            Entrega o teu caminho ao Senhor; confia nele, e Ele tudo fará.- Salmos 37:5
-          </p>
-          <button>Clique aqui</button>
-        </div>
-      </div>
-
-
-      
-  <div class="container">
-    <div id="fundo"></div>
-    <button id="trocarBtn">Trocar Imagem</button>
-  </div>
+  <button onclick="window.location.href='https://www.youtube.com/watch?v=Krw3YIZI-Ps&list=RDeO9dUp5goWo&index=23'">Clique para ouvir</button>
 
 
 
-      <div class="caixa-imagem">
-        <img src="imgs/1img.jpg" alt="Clique" class="imagem.logo" />
-      </div>
-    </div>
-    <div class="caixa-menu">
-      <img src="imgs/1img.jpg" alt="Copo botao" class="botao-menu" onclick="mudar('#000', 'img1.png')" />
-      <img src="imgs/2img.jpg" alt="Copo botao" class="botao-menu" onclick="mudar('#0000', 'img2.png')" />
-      <img src="imgs/3img.jpg" alt="Copo botao" class="botao-menu" onclick="mudar('#00000', 'img3.png')" />
-      <img src="imgs/4img.jpg" alt="Copo botao" class="botao-menu" onclick="mudar('#000000', 'img4.png')" />
-      <img src="imgs/5img.jpg" alt="Copo botao" class="botao-menu" onclick="mudar('#0000000', 'img5.png')" />
-    </div>
-  </div>
-  <!-- FECHANDO caixa-conteudo AQUI -->
+
+    <h2>Galeria Automática ✨</h2>
+  <img id="imagem" src="imgs/1img.jpg" alt="Slide de imagens">
+
+  <img id="imagem" src="imgs/1img.jpg" alt="Imagem">
+  <br>
+  <button onclick="trocarImagem()">Clique para trocar a imagem</button>
+
+
+
 </body>
 <script src="1scripts.js"></script>
-
 </html>
