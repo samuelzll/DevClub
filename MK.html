@@ -15,11 +15,11 @@
 
 <body>
     <header>
-        <img src="imgs/LogoMK.jpg" class="img-logo">
+        <img src="img/LogoMK.jpg" class="img-logo">
     </header>
 
 <header class="informacoes">
-    <a onclick="toggleInfo('informacoes')">informacoes</a>
+    <a onclick="toggleInfo('informacoes')">Informações</a>
     <a onclick="toggleInfo('agendar')">Agendar</a>
 </header>
 
@@ -35,13 +35,13 @@
 <div id="listaBarbeiros" class="barbeiros-container">
 
   <div class="barbeiro-card" data-barbeiro="Lisboa - MK">
-    <img src="imgs/barbeiro1.jpeg">
+    <img src="img/barbeiro1.jpeg">
     <p>Lisboa - MK</p>
   </div>
 
   <div class="barbeiro-card" data-barbeiro="Marcos - MC">
-    <img src="imgs/barbeiro2.jpeg">
-    <p>Marcos - MC</p>
+    <img src="img/barbeiro2.jpeg">
+    <p>Marcos</p>
   </div>
 
 </div>
@@ -95,50 +95,23 @@
     <h1 class="titulo">Barbearia Estilo MK</h1>
 
     <section class="cortes-section">
-  <h2 class="titulo-cortes">Nossos Cortes ⤵</h2>
-  <button class="btn-ver-imagens" onclick="abrirGaleria()">VER IMAGENS</button>
+  <button class="btn-ver-imagens" onclick="abrirGaleria()">Ver Nossos Cortes</button>
 </section>
 
-<!-- MODAL GALERIA – VERSÃO GRID -->
-<div id="modalGaleria" class="modal-galeria">
-    <span class="fechar" onclick="fecharModal()">&times;</span>
 
-    <div class="galeria-grid">
-        <img src="imgs/corte1.jpg" onclick="abrirSlide(0)">
-        <img src="imgs/corte2.jpg" onclick="abrirSlide(1)">
-        <img src="imgs/corte3.jpg" onclick="abrirSlide(2)">
-        <img src="imgs/corte4.jpg" onclick="abrirSlide(3)">
-        <img src="imgs/corte5.jpg" onclick="abrirSlide(4)">
-    </div>
-</div>
-
-<!-- SLIDE (CONTINUA O MESMO QUE VOCÊ JÁ TINHA) -->
-<div id="modalSlide" class="modal-galeria">
-    <span class="fechar" onclick="fecharSlide()">&times;</span>
-
-    <span class="anterior" onclick="mudarImagem(-1)">❮</span>
-    <span class="proximo" onclick="mudarImagem(1)">❯</span>
-
-    <div class="modal-conteudo">
-        <img class="imagem-slide" src="imgs/corte1.jpg">
-        <img class="imagem-slide" src="imgs/corte2.jpg">
-        <img class="imagem-slide" src="imgs/corte3.jpg">
-        <img class="imagem-slide" src="imgs/corte4.jpg">
-        <img class="imagem-slide" src="imgs/corte5.jpg">
-    </div>
-</div>
 
  <div class="apresentacao1">
-
     <div class="video-box">
+      <p class="nossa-barbearia">Nossa Barbearia</p>
         <video controls width="400">
-            <source src="imgs/videosMK.mp4" type="video/mp4">
+            <source src="img/videosMK.mp4" type="video/mp4">
         </video>
     </div>
 
     <div class="texto-box">
-        <h1>O que temos por aqui?</h1>
-        <h2>Um espaço moderno, atendimento diferenciado e cortes que valorizam seu estilo.</h2>
+        <h1 class="texto-barbeiro">Nossos Barbeiros</h1>
+        <img src="img/barbeirosMK.jpeg" class="img-barbeiros">
+        <p class="texto-pro">Profissionais experientes e dedicados a oferecer o melhor serviço para você.</p>
     </div>
 </div>
 
@@ -151,6 +124,35 @@
     <div class="box">
         <h1>Cabelo</h1>
         <p>Degradê, social, todo na tesoura, raspar na máquina, selagem térmica, hidratação e disfarce de brancos. Não vai faltar nada para o visual ficar em dia!</p>
+    </div>
+</div>
+
+  <!-- MODAL GALERIA – VERSÃO GRID -->
+<div id="modalGaleria" class="modal-galeria">
+    <span class="fechar" onclick="fecharModal()">&times;</span>
+
+    <div class="galeria-grid">
+        <img src="img/corte1.jpg" onclick="abrirSlide(0)">
+        <img src="img/corte2.jpg" onclick="abrirSlide(1)">
+        <img src="img/corte3.jpg" onclick="abrirSlide(2)">
+        <img src="img/corte4.jpg" onclick="abrirSlide(3)">
+        <img src="img/corte5.jpg" onclick="abrirSlide(4)">
+    </div>
+</div>
+
+<!-- SLIDE (CONTINUA O MESMO QUE VOCÊ JÁ TINHA) -->
+<div id="modalSlide" class="modal-galeria">
+    <span class="fechar" onclick="fecharSlide()">&times;</span>
+
+    <span class="anterior" onclick="mudarImagem(-1)">❮</span>
+    <span class="proximo" onclick="mudarImagem(1)">❯</span>
+
+    <div class="modal-conteudo">
+        <img class="imagem-slide" src="img/corte1.jpg">
+        <img class="imagem-slide" src="img/corte2.jpg">
+        <img class="imagem-slide" src="img/corte3.jpg">
+        <img class="imagem-slide" src="img/corte4.jpg">
+        <img class="imagem-slide" src="img/corte5.jpg">
     </div>
 </div>
 

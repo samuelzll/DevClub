@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    font-family: 'Jolly Lodger', cursive;
+}
+
+/* 
+cima - top
+baixo - bottom
+esquerda - left
+direita - right
+*/
+
+
+
+body {
+  background-color: #ffffff;
+  margin: 0;
+  font-family: 'Jolly Lodger', cursive;
+}
+
+.img-jesus {
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  width: 400px;
+  height: auto;
+  display: block;
+  margin-left: 900px;
+  margin-top: 100px;
+}
+
+.img-paz {
+  position: absolute;
+  top: 20px; /* Move a imagem para cima */
+  width: 300px;
+  margin-left: 100px;
+}
+
+.text-section h1 {
+  font-size: 180px;
+  color: #000;
+  margin: 0;
+  line-height: 0px;
+}
+
+.text-section h2 {
+  font-size: 180px;
+  background: linear-gradient(to bottom, #d4a017, #5a3a00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: skew(-5deg);
+}
+
+.text-section {
+  margin: -280px 0 0 80px;
+}
+
+
+.social {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: fixed;
+  top: 40%;
+  left: 30px;
+  transform: translateY(-50%);
+}
+
+.social img {
+  width: 35px;
+  height: 35px;
+  transition: transform 0.3s;
+}
+
+.social img:hover {
+  transform: scale(1.2);
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  font-size: 24px;
+  gap: 30px;
+
+
+  position: fixed; /* Fixa o elemento em relação à janela do navegador */
+  top: 0;          /* Alinha o topo do elemento com o topo da janela */
+  left: 0;         /* Alinha a esquerda do elemento com a esquerda da janela */
+  background-color: #ffffff; /* Adiciona uma cor de fundo para destaque (opcional) */
+  color: white;    /* Define a cor do texto (opcional) */
+  padding: 10px;   /* Adiciona algum preenchimento (opcional) */
+  width: 100%;     /* Faz com que o elemento ocupe toda a largura da tela (opcional) */
+  z-index: 1000;   /* Garante que o elemento fique acima de outros conteúdos (opcional) */
+}
+  
+
+header a {
+  text-decoration: none;
+  color: black;
+  letter-spacing: 1px;
+}
+
+header a:hover {
+  color: #a0522d;
+  text-shadow: 0 0 5px #a0522d;
+}
+
+body {
+  margin-left: 100px;
+}
+
+
+
+
+

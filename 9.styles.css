@@ -2,11 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box; 
-    font-family:'Lato', sans-serif;
+    font-family: "Science Gothic", sans-serif;
 }
 
 body {
-  background-image: url("imgs/capaMK.jpg"); 
+  background-image: url("img/capaMK.jpg"); 
   height: 100vh; /* altura total da tela */
   background-size: cover; /* cobre toda a tela */
   background-position: center; /* centraliza a imagem */
@@ -15,7 +15,7 @@ body {
   font-family: Arial, sans-serif; /* apenas para deixar o texto mais bonito */
   
 }
-
+  
 body::before {
   content: "";
   position: fixed;
@@ -231,12 +231,6 @@ header {
   text-shadow: 0 0 5px #a0522d;
 }
 
-.titulo-cortes {
-  font-size: 32px;
-  padding: 20px;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.5); /* destaque no fundo */
-}
-
 .informacoes a {
     margin-right: 10px;            /* espaçamento menor */
     cursor: pointer;
@@ -301,11 +295,6 @@ header {
       height: 50px;
     }
 
-    .titulo-cortes {
-      font-size: 24px;
-      padding: 10px;
-    }
-
     body {
       position: static;
     }
@@ -314,68 +303,91 @@ header {
 /* Fonte do título */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
+/* ============================= */
+/* APRESENTAÇÃO 1 — ARRUMADO     */
+/* ============================= */
+
 .apresentacao1 {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: white;
-  gap: 30px;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 60px;
   padding: 40px 5%;
+  color: white;
+  position: relative;
+  flex-wrap: wrap;
 }
 
-/* Estilo do vídeo */
-.video-box video {
-  max-width: 420px;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.6);
-  border: 2px solid #ffffff44;
-}
-
-/* Estilo do texto */
-.texto-box {
-  max-width: 600px;
-  text-align: right;
-  animation: aparecer 1s ease-in-out; /* animação */
-}
-
-.texto-box h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 28px;
-  margin-bottom: 25px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+/* TÍTULOS ACIMA DAS MÍDIAS */
+.nossa-barbearia {
+  font-size: 32px;
   color: #B68820;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 15px;
 }
 
-.texto-box h2 {
-  line-height: 1.6;
-  font-size: 20px;
+.texto-barbeiro {
+  font-size: 32px;
+  color: #B68820;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 15px;
 }
 
-/* Animação do texto */
-@keyframes aparecer {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* BLOCO DO VÍDEO */
+.video-box {
+  text-align: center;
+  max-width: 400px;
 }
 
-/* 📱 Responsivo no celular */
-@media (max-width: 768px) {
+.video-box video {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+}
+
+/* BLOCO DO BARBEIROS */
+.texto-box {
+  max-width: 420px;
+  text-align: center;
+}
+
+.img-barbeiros {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+}
+
+.texto-pro {
+  font-size: 25px;
+  color: #ffffff;
+   flex: 1;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  border: 2px solid rgba(255,255,255,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.texto-pro:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.8);
+}
+
+/* ============================= */
+/* RESPONSIVO                    */
+/* ============================= */
+
+@media (max-width: 900px) {
   .apresentacao1 {
     flex-direction: column;
-    text-align: center;
+    gap: 40px;
   }
 
-  .texto-box {
-    text-align: center;
-  }
-
-  .video-box video {
+  .video-box, .texto-box {
     max-width: 100%;
   }
 }
