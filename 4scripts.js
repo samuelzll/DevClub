@@ -66,6 +66,7 @@ function mostrarSlide(n) {
 /***********************************
  * TOGGLE INFO
  ***********************************/
+
 function toggleInfo(id) {
   document.querySelectorAll('.info-box').forEach(box => {
     if (box.id !== id) box.style.display = 'none';
