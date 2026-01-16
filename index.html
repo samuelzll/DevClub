@@ -1,149 +1,134 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <title>Controle Mensal</title>
     <link rel="stylesheet" href="9.styles.css">
-    <title>Barbearia Estilo MK</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-
 <body>
-      <canvas id="fundoParticulas"></canvas>
-    <header>
-        <img src="img/LogoMK.jpg" class="img-logo">
-    </header>
 
-<header class="informacoes">
-    <a onclick="toggleInfo('informacoes')">Informações</a>
-    <a onclick="toggleInfo('agendar')">Agendar</a>
-</header>
-
-<!-- ÁREAS QUE VÃO APARECER AO CLICAR -->
-<div id="informacoes" class="info-box">📞 Whatsapp: (85) 99788-0816 <br> 🕢 Ter - Sáb: 09h às 19h <br> 💰 Corte: R$30 / Barba: R$30 / Nevou: R$110... </div>
-
-<!-- AGENDAR: formulário avançado -->
-<div id="agendar" class="info-box">
-  <h2>Agendar Horário</h2>
-
-  <label>Escolha o Barbeiro</label>
-
-<div id="listaBarbeiros" class="barbeiros-container">
-
-  <div class="barbeiro-card" data-barbeiro="Lisboa - MK">
-    <img src="img/barbeiro1.jpeg">
-    <p>Lisboa - MK</p>
-  </div>
-
-  <div class="barbeiro-card" data-barbeiro="Marcos - MC">
-    <img src="img/barbeiro2.jpeg">
-    <p>Marcos</p>
-  </div>
-
+<!-- AUTH BAR (topo) -->
+<div id="authBar" style="display:none" class="auth-bar">
+    <span id="userEmail"></span>
+    <button onclick="logout()">Sair</button>
 </div>
 
-<input type="hidden" id="barbeiroSelecionado">
+<!-- LOGIN -->
+<div class="login" id="loginBox">
+    <input id="email" type="email" placeholder="email">
+    <input id="senha" type="password" placeholder="senha">
 
-  <label for="nomeAgendamento">Seu nome</label>
-  <input id="nomeAgendamento" type="text" placeholder="Nome e sobrenome">
-
-  <label for="telefoneAgendamento">Telefone (para confirmar)</label>
-  <input id="telefoneAgendamento" type="tel" placeholder="(85) 9xxxx-xxxx">
-
-  <label for="servicoAgendamento">Serviço</label>
-  <select id="servicoAgendamento">
-    <option value="Corte">Corte</option>
-    <option value="Barba">Barba</option>
-    <option value="Corte+Barba">Corte + Barba</option>
-  </select>
-
-  <label for="dataAgendamento">Data</label>
-  <input id="dataAgendamento" type="date">
-
-  <label for="horaAgendamento">Horário disponível</label>
-  <select id="horaAgendamento">
-    <option value="">Selecione a data primeiro</option>
-  </select>
-
-  <button id="btnConfirmarAgendamento">Confirmar e Enviar (WhatsApp)</button>
-  <p id="resultadoAgendamento"></p>
-
-  <hr style="margin:12px 0; border-color: #ffffff22;">
-
-  <button id="btnAbrirPainel" style="background:transparent;border:1px solid #B68820;color:#B68820;padding:8px;border-radius:8px;cursor:pointer;">
-    Horarios Agendados (Barbeiro)
-  </button>
-
-</div>
-
-<!-- PAINEL DO BARBEIRO (oculto por padrão) -->
-<div id="painelAgendamentos" class="info-box" style="display:none; max-height: 60vh; overflow:auto;">
-  <h2>Agendamentos</h2>
-  <div id="listaAgendamentos">
-    <!-- itens serão inseridos aqui -->
-  </div>
-  <p style="font-size:13px;color:#ddd;margin-top:10px;">Use o botão excluir para liberar horário.</p>
+    <button onclick="login()">Entrar</button>
+    <button onclick="registrar()">Criar conta</button>
 </div>
 
 
+<!-- CONTEÚDO PROTEGIDO -->
+<div id="appContent" style="display:none">
+    <!-- TODO O RESTO DO SEU SITE FICA AQUI DENTRO -->
+
+  
 
 
-    <h1 class="titulo">Barbearia Estilo MK</h1>
+<div class="topo">
+    <label>Mês:
+        <input type="month" id="mes">
+    </label>
 
-<section class="cortes-section">
-  <div class="mosaico-cortes">
-      <img src="img/corte1.jpg" class="foto f1">
-      <img src="img/corte2.jpg" class="foto f2">
-      <img src="img/corte3.jpg" class="foto f3">
-      <img src="img/corte4.jpg" class="foto f4">
-      <img src="img/corte5.jpg" class="foto f5">
-      <img src="img/corte6.jpeg" class="foto f6">
-      <img src="img/corte7.jpeg" class="foto f7">
-      <img src="img/corte8.jpg" class="foto f8">
-      <img src="img/corte9.jpg" class="foto f9">
-  </div>
-</section>
+    <label>Valor de Entrada:
+        <input type="number" id="entrada">
+    </label>
+</div>
+
+<div class="conteudo">
+
+    <!-- CARTÃO -->
+    <div class="coluna">
+        <h2>Cartão de credito</h2>
+
+        <input id="ccDesc" placeholder="descrição">
+        <input id="ccValor" type="number" placeholder="valor" required min="0" step="0.01">
+
+        <select id="ccParcela">
+            <option value="1">À vista</option>
+            <option value="2">2x</option>
+            <option value="3">3x</option>
+            <option value="4">4x</option>
+            <option value="5">5x</option>
+            <option value="6">6x</option>
+            <option value="7">7x</option>
+            <option value="8">8x</option>
+            <option value="9">9x</option>
+            <option value="10">10x</option>
+            <option value="11">11x</option>
+            <option value="12">12x</option>
+        </select>
 
 
+        <button onclick="addCredito()">add</button>
 
- <div class="apresentacao1">
-    <div class="video-box">
-      <p class="nossa-barbearia">Nossa Barbearia</p>
-        <video controls width="400">
-            <source src="img/videosMK.mp4" type="video/mp4">
-        </video>
+        <div id="listaCredito"></div>
+
+        <div class="total">
+            Total cartão: <span id="totalCredito">0,00</span>$
+        </div>
     </div>
 
-    <div class="texto-box">
-        <h1 class="texto-barbeiro">Nossos Barbeiros</h1>
-        <img src="img/barbeirosMK.jpeg" class="img-barbeiros">
-        <p class="texto-pro">Profissionais experientes e dedicados a oferecer o melhor serviço para você.</p>
+    <!-- DEMAIS -->
+    <div class="coluna">
+        <h2>Demais gastos:</h2>
+
+        <input id="dDesc" placeholder="descrição">
+        <input id="dValor" type="number" placeholder="valor">
+
+        <select id="dParcela">
+            <option value="1">À vista</option>
+            <option value="2">2x</option>
+            <option value="3">3x</option>
+            <option value="4">4x</option>
+            <option value="5">5x</option>
+            <option value="6">6x</option>
+            <option value="7">7x</option>
+            <option value="8">8x</option>
+            <option value="9">9x</option>
+            <option value="10">10x</option>
+            <option value="11">11x</option>
+            <option value="12">12x</option>
+        </select>
+
+        <button onclick="addDemais()">add</button>
+
+        <div id="listaDemais"></div>
+
+        <div class="total">
+            Total de demais: <span id="totalDemais">0,00</span>$
+        </div>
     </div>
+
 </div>
 
- <div class="apresentacao2">
-    <div class="box">
-        <h1>Barba</h1>
-        <p>Desenhada, completa, disfarce de fios brancos, lavagem e hidratação. Tudo para deixar sua preciosa barba sempre perfeita.</p>
-    </div>
-
-    <div class="box">
-        <h1>Cabelo</h1>
-        <p>Degradê, social, todo na tesoura, raspar na máquina, hidratação e disfarce de brancos. Não vai faltar nada para o visual ficar em dia!</p>
-    </div>
+<div class="soma-final">
+  <div class="total-soma">  Soma total : <span id="somaTotal">0,00 </span><br> </div> 
+  <div class="final-saldo">   Saldo final: <span id="saldoFinal">0,00</span> </div> 
 </div>
 
-  <p class="como-chegar">Como Chegar</p>
+<div class="exportar">
+    <button onclick="exportarPDF()">📄 Exportar PDF</button>
+    <button onclick="exportarExcel()">📊 Exportar Excel</button>
+</div>
 
-  <div class="mapa-container">
-<iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d900.690968964857!2d-38.53756773046621!3d-3.7701756615599664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zM8KwNDYnMTIuNiJTIDM4wrAzMicxMi45Ilc!5e1!3m2!1spt-BR!2sbr!4v1765198256547!5m2!1spt-BR!2sbr"
- allowfullscreen="" 
- loading="lazy" 
- referrerpolicy="no-referrer-when-downgrade">
-</iframe>
-  </div>
 
+<div class="grafico">
+    <canvas id="graficoMensal"></canvas>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+
+<script src="scripts.js"></script>
+</div>
 </body>
-    <script src="4scripts.js"></script>
 </html>

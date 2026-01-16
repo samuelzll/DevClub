@@ -1,639 +1,148 @@
 * {
+    box-sizing: border-box;
+}
+
+
+body {
     margin: 0;
-    padding: 0;
-    box-sizing: border-box; 
+    padding: 20px;
+    background: #2b2b2b;
+    color: #fff;
     font-family: "Russo One", sans-serif;
 }
 
-body {
-  height: 100vh; /* altura total da tela */
-  background-size: cover; /* cobre toda a tela */
-  background-position: center; /* centraliza a imagem */
-  background-repeat: no-repeat; /* evita repetição */
-  background-attachment: fixed; /* mantém o fundo fixo ao rolar */
-  font-family: Arial, sans-serif; /* apenas para deixar o texto mais bonito */
-  
-}
-  
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3); /* camada escura transparente */
-  z-index: -1;
-}
-
-header {
-  display: flex;
-  justify-content:baseline ;
-  align-items: flex-start; /* mantém no topo */
-  padding-top: 20px; /* distância do topo */
-  padding-left: 20px;
-}
-
-
-/* ============================= */
-/* PADRÃO GLOBAL DE TIPOGRAFIA  */
-/* ============================= */
-
-/* Títulos principais */
-h1, .titulo {
-  font-family: "Russo One", sans-serif;
-  font-weight: 700;
-  color: #B68820;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
-}
-
-/* h1 grande */
-h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
-}
-
-/* h2 menor e forte */
-h2 {
-  font-size: 28px;
-  font-weight: 700;
-  color: #B68820;
-  text-transform: uppercase;
-}
-
-/* Parágrafos */
-p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #ffffff;
-}
-
-/* Para textos dentro de caixas escuras */
-.info-box p, 
-#agendar p, 
-.item-info {
-  color: #f1f1f1;
-}
-
-
-
-.img-logo {
-  width: 80px; /* tamanho da bola */
-  height: 80px;
-  border-radius: 50%; /* deixa a imagem redonda */
-  object-fit: cover; /* ajusta o conteúdo dentro do círculo */
-  border: 3px solid #fff; /* opcional: borda branca */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* sombra suave */
-}
-
-.titulo {
-  text-align: center;
-  margin-top: 40px;
-  margin-bottom: 10px;
-  font-size: 56px; /* GRANDE igual à imagem */
-  color: #B68820;
-  text-shadow: 3px 3px 8px rgba(0,0,0,0.6);
-}
-
-
-
-
-/* Miniaturas */
-.miniaturas {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 25px;
-}
-
-.miniaturas img {
-  width: 100px;
-  height: 70px;
-  object-fit: cover;
-  border-radius: 10px;
-  cursor: pointer;
-  opacity: 0.6;
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
-}
-
-.miniaturas img:hover {
-  opacity: 1;
-  transform: scale(1.05);
-}
-
-.miniaturas img.ativo {
-  opacity: 1;
-  border: 2px solid #c6a25e;
-}
-
-
-
-.informacoes {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 34px;
-  gap: 30px;
-  color: #B68820;
-  text-shadow: 10px 10px 15px rgba(0,0,0,0.5);
-  font-size: 40px;
-  position: relative; 
-  margin-left: 100px;
-  margin-top: -70px;
-}
-
-.informacoes a {
-  text-decoration: none;
-  letter-spacing: 1px;
-}
-
-.informacoes a:hover {
-  color: #a0522d;
-  text-shadow: 0 0 5px #a0522d;
-}
-
-.informacoes a {
-    margin-right: 10px;            /* espaçamento menor */
-    cursor: pointer;
-    font-weight: 600;
-    color: #B68820;
-    text-decoration: none;
-    transition: 0.3s ease-in-out;  /* animação suave */
-}
-
-.informacoes a:hover {
-    color: #0056A6;                /* destaque ao passar o mouse */
-    text-decoration: underline;
-}
-
-
-/* CAIXA DE INFORMAÇÕES */
-.info-box {
-    display: none; 
-    padding: 15px;
-    margin-top: 10px;
-    background: #002C59;
-    color: white;
-    border-radius: 8px;
-    max-width: 500px;
-    width: 90%;                    /* RESPONSIVO */
-    margin-left: auto;
-    margin-right: auto;            /* CENTRALIZADO */
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.2); /* efeito profissional */
-    transition: 0.3s ease-in-out;   /* transição suave */
-}
-
-
-
-
-
-
-@media screen and (max-width: 900px) {
-    body {
-    width: 100%;
-    height: 60%;
-    padding: 0;
-    margin: 0;
-   } 
-
-    .informacoes {
-    font-size: 20px;
-    gap: 10px;
-    flex-direction: row;
-    text-align: center;
-    margin-top: -65px;
-    margin-right: 40px;
-  }
-
-    .titulo {
-      font-size: 28px;
-      padding-top: 30px;
-      padding: 50px;
-      margin-left: -10px;
-    }
-
-    .img-logo {
-      width: 55px;
-      height: 55px;
-    }
-
-    body {
-      position: static;
-    }
-}
-
-/* Fonte do título */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
-
-/* ============================= */
-/* APRESENTAÇÃO 1 — ARRUMADO     */
-/* ============================= */
-
-.apresentacao1 {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 60px;
-  padding: 40px 5%;
-  color: white;
-  position: relative;
-  flex-wrap: wrap;
-}
-
-/* TÍTULOS ACIMA DAS MÍDIAS */
-.nossa-barbearia,
-.texto-barbeiro {
-  font-size: 38px; /* destaque */
-  font-weight: 700;
-  color: #B68820;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 15px;
-  text-align: center;
-}
-
-/* BLOCO DO VÍDEO */
-.video-box {
-  text-align: center;
-  max-width: 400px;
-}
-
-.video-box video {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.6);
-}
-
-/* BLOCO DO BARBEIROS */
-.texto-box {
-  max-width: 420px;
-  text-align: center;
-}
-
-.img-barbeiros {
-  width: 100%;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.6);
-}
-
-.texto-pro {
-  font-size: 25px;
-  color: #ffffff;
-   flex: 1;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-  border: 2px solid rgba(255,255,255,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.texto-pro:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.8);
-}
-
-/* ============================= */
-/* RESPONSIVO                    */
-/* ============================= */
-
-@media (max-width: 900px) {
-  .apresentacao1 {
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  .video-box, .texto-box {
-    max-width: 100%;
-  }
-}
-
-.apresentacao2 {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  gap: 10px;
-  padding: 20px;
-  flex-direction: row;
-  color: white;
-}
-
-.box {
-  flex: 1;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-  border: 2px solid rgba(255,255,255,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.8);
-}
-
-.box h1 {
-  font-size: 30px;
-  font-weight: 700;
-  color: #B68820;
-  margin-bottom: 15px;
-  text-transform: uppercase;
-}
-
-.box p {
-  font-size: 16px;
-  color: #fff;
-  line-height: 1.6;
-}
-
-
-
-/* ==================== */
-/* ESTILO DO AGENDAMENTO */
-/* ==================== */
-
-#agendar h2 {
-  font-size: 24px;
-  color: #B68820;
-  text-align: center;
-  margin-bottom: 8px;
-}
-
-#agendar label {
-  display: block;
-  font-size: 15px;
-  margin: 10px 0 6px;
-  color: rgb(0, 0, 0);
-}
-
-#agendar input, #agendar select {
-  width: 100%;
-  padding: 10px;
-  border-radius: 8px;
-  border: 2px solid #c6a25e;
-  background: rgba(255,255,255,0.06);
-  color: rgb(0, 0, 0);
-  font-size: 15px;
-  outline: none;
-  transition: 0.2s;
-}
-
-#agendar input:focus, #agendar select:focus {
-  border-color: #B68820;
-  background: rgba(255,255,255,0.12);
-}
-
-#agendar button#btnConfirmarAgendamento {
-  width: 100%;
-  padding: 12px;
-  margin-top: 12px;
-  background: #B68820;
-  color: rgb(0, 0, 0);
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  border-radius: 8px;
-  transition: 0.3s ease;
-}
-
-#agendar button#btnConfirmarAgendamento:hover {
-  background: #d4a74e;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.4);
-}
-
-#resultadoAgendamento {
-  text-align: center;
-  margin-top: 10px;
-  font-size: 15px;
-}
-
-/* Painel */
-#painelAgendamentos h2 {
-  color: #B68820;
-  margin-bottom: 8px;
-}
-
-.item-agendamento {
-  background: rgba(255,255,255,0.03);
-  padding: 10px;
-  border-radius: 8px;
-  margin-bottom: 8px;
-  border: 1px solid rgba(255,255,255,0.04);
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  align-items: center;
-}
-
-.item-info {
-  font-size: 14px;
-  color: #eee;
-}
-
-.item-actions button {
-  background: transparent;
-  border: 1px solid #ff6b6b;
-  color: #ff6b6b;
-  padding: 6px 8px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.item-actions button:hover {
-  background: rgba(255,107,107,0.1);
-}
-
-/* responsivo */
-@media (max-width: 768px) {
-  #agendar h2 { font-size: 20px; }
-  #agendar label { font-size: 14px; }
-  #agendar input, #agendar select { font-size: 14px; }
-}
-
-
-
-.barbeiros-container {
-  display: flex;
-  gap: 15px;
-  justify-content: center;
-  margin-bottom: 18px;
-}
-
-.barbeiro-card {
-  background: rgba(255,255,255,0.05);
-  padding: 10px;
-  width: 130px;
-  border-radius: 10px;
-  text-align: center;
-  cursor: pointer;
-  border: 2px solid transparent;
-  transition: .3s ease;
-}
-
-.barbeiro-card img {
-  width: 100%;
-  height: 120px;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-.barbeiro-card p {
-  margin-top: 6px;
-  font-weight: bold;
-  font-size: 14px;
-  color: #B68820;
-}
-
-.barbeiro-card.selecionado {
-  border: 2px solid #B68820;
-  box-shadow: 0 0 8px #B68820;
-}
-
-
-
-/* ============================= */
-/* NOVO GRID DA GALERIA DE CORTES */
-/* ============================= */
-
-.galeria-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  gap: 18px;
-  width: 90%;
-  max-width: 1000px;
-  margin: auto;
-}
-
-.galeria-grid img {
-  width: 100%;
-  height: 230px;
-  object-fit: cover;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: 0.3s ease;
-  border: 2px solid transparent;
-}
-
-.galeria-grid img:hover {
-  transform: scale(1.04);
-  border-color: #B68820;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-}
-
-/* Responsivo */
-@media (max-width: 600px) {
-  .galeria-grid img {
-    height: 160px;
-  }
-}
-
-#fundoParticulas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background: #0f0f0f; /* fundo neutro */
-}
-
-
-/* --- MOSAICO DE CORTES (estilo do exemplo enviado) --- */
-
-.cortes-section {
-  display: flex;
-  justify-content: center;
-  margin: 40px 0;
-}
-
-.mosaico-cortes {
-  width: 330px;
-  position: relative;
-  height: 430px;
-}
-
-.mosaico-cortes .foto {
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 8px;
-  position: absolute;
-  cursor: pointer;
-  transition: 0.3s;
-  box-shadow: 0 2px 5px #B68820;
-}
-
-.mosaico-cortes .foto:hover {
-  transform: scale(1.08);
-  z-index: 10;
-}
-
-/* --- POSIÇÕES DAS FOTOS (estilo espalhado igual ao modelo) --- */
-.f1 { top: 0; left: 0; transform: rotate(-3deg); }
-.f2 { top: 0; right: 0; transform: rotate(2deg); }
-.f3 { top: 140px; left: 80px; transform: rotate(-1deg); }
-
-.f4 { top: 220px; left: -10px; transform: rotate(3deg); }
-.f5 { top: 220px; right: -10px; transform: rotate(-2deg); }
-
-.f6 { top: 320px; left: 40px; transform: rotate(2deg); }
-.f7 { top: 320px; right: 40px; transform: rotate(-3deg); }
-
-.f8 { top: 120px; right: 110px; transform: rotate(4deg); }
-.f9 { top: 110px; left: -40px; transform: rotate(-4deg); }
-
-
-
-
-@media (max-width: 900px) {
-
-  h1 { font-size: 34px; }
-  h2 { font-size: 22px; }
-
-  .titulo {
-    font-size: 36px;
-    margin-top: 20px;
-  }
-
-  .nossa-barbearia,
-  .texto-barbeiro {
-    font-size: 28px;
-  }
-
-  .box h1 {
-    font-size: 24px;
-  }
-
-  p, .box p {
-    font-size: 15px;
-  }
-}
-
-.mapa-container {
-    width: 100%;
+.topo {
     display: flex;
-    justify-content: center; /* centraliza */
-    margin-top: 20px;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
 }
 
-.mapa-container iframe {
-    width: 90%;            /* deixa com bordas laterais */
-    max-width: 600px;      /* tamanho bonito e centralizado */
-    height: 350px;
-    border: 0;
-    border-radius: 10px;
+input, button {
+    background: #1e1e1e;
+    border: none;
+    color: #fff;
+    padding: 6px;
+    margin: 4px 0;
+    font-family: inherit;
 }
 
-.como-chegar {
-    font-size: 28px;
-    color: #B68820;
+button:hover {
+    background: #333;
+}
+
+button:active {
+    transform: scale(0.97);
+}
+
+
+.conteudo {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.coluna {
+    width: 45%;
+}
+
+h2 {
+    font-weight: normal;
+    color: beige;
+}
+
+.total {
+    margin-top: 15px;
+}
+
+.soma-final {
     text-align: center;
-    margin-top: 40px;
-    margin-bottom: 15px;
+    font-size: 26px;
+    margin-top: 60px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .conteudo {
+        flex-direction: column;
+    }
+
+    .coluna {
+        width: 100%;
+    }
+
+    .soma-final {
+        font-size: 22px;
+    }
+}
+
+/* mantém tudo que você já tinha */
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 5px 0;
+}
+
+.acoes button {
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+.grafico {
+    max-width: 600px;
+    margin: 60px auto;
+}
+
+
+.exportar {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.exportar button {
+    margin: 5px;
+}
+
+.total-soma {
+    font-weight: bold;
+    margin-top: 10px;
+    color: red;
+}
+
+.final-saldo{
+    font-weight: bold;
+    margin-top: 20px;
+    color: green;
+}
+
+
+.auth-bar {
+    position: fixed;
+    top: 10px;
+    right: 15px;
+    background: #222;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 6px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    z-index: 999;
+}
+
+.auth-bar button {
+    background: #e74c3c;
+    border: none;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login {
+    margin: 50px auto;
+    width: 250px;
+    text-align: center;
 }
