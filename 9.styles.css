@@ -2,11 +2,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box; 
-    font-family: "Science Gothic", sans-serif;
+    font-family: "Russo One", sans-serif;
 }
 
 body {
-  background-image: url("img/capaMK.jpg"); 
   height: 100vh; /* altura total da tela */
   background-size: cover; /* cobre toda a tela */
   background-position: center; /* centraliza a imagem */
@@ -35,6 +34,51 @@ header {
   padding-left: 20px;
 }
 
+
+/* ============================= */
+/* PADRÃO GLOBAL DE TIPOGRAFIA  */
+/* ============================= */
+
+/* Títulos principais */
+h1, .titulo {
+  font-family: "Russo One", sans-serif;
+  font-weight: 700;
+  color: #B68820;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+}
+
+/* h1 grande */
+h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+/* h2 menor e forte */
+h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #B68820;
+  text-transform: uppercase;
+}
+
+/* Parágrafos */
+p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+/* Para textos dentro de caixas escuras */
+.info-box p, 
+#agendar p, 
+.item-info {
+  color: #f1f1f1;
+}
+
+
+
 .img-logo {
   width: 80px; /* tamanho da bola */
   height: 80px;
@@ -45,66 +89,16 @@ header {
 }
 
 .titulo {
-  justify-content:first baseline;
-  color: #B68820;
-  font-size: 66px;
-  padding-top: 40px;
-  padding: 20px;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.5); /* destaque no fundo */
-}
-
-/* Botão principal */
-.btn-ver-imagens {
-  background: transparent;
-  border: 2px solid #c6a25e;
-  color: #c6a25e;
-  padding: 10px 25px;
-  border-radius: 30px;
-  cursor: pointer;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-  display: block;
-  margin: 20px 0 0 20px;
-}
-
-.btn-ver-imagens:hover {
-  background: #c6a25e;
-  color: #ffffff;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-}
-
-/* Modal */
-.modal-galeria {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  padding-top: 60px;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.9);
-  justify-content: center;
-  align-items: center;
-  animation: fadeIn 0.4s ease;
-}
-
-/* Conteúdo do modal */
-.modal-conteudo {
-  max-width: 900px;
-  width: 90%;
-  position: relative;
   text-align: center;
+  margin-top: 40px;
+  margin-bottom: 10px;
+  font-size: 56px; /* GRANDE igual à imagem */
+  color: #B68820;
+  text-shadow: 3px 3px 8px rgba(0,0,0,0.6);
 }
 
-.imagem-slide {
-  width: 100%;
-  height: auto;
-  border-radius: 15px;
-  display: none;
-  animation: fadeUp 0.6s ease;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-}
+
+
 
 /* Miniaturas */
 .miniaturas {
@@ -136,76 +130,7 @@ header {
   border: 2px solid #c6a25e;
 }
 
-/* Botão fechar */
-.fechar {
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  color: #c6a25e;
-  font-size: 2rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-}
 
-.fechar:hover {
-  color: #fff;
-}
-
-/* Setas */
-.anterior, .proximo {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  padding: 16px;
-  color: #c6a25e;
-  font-weight: bold;
-  font-size: 2.5rem;
-  transition: 0.3s;
-  user-select: none;
-  border-radius: 50%;
-  background: rgba(0,0,0,0.4);
-}
-
-.anterior:hover, .proximo:hover {
-  color: white;
-  background: rgba(0,0,0,0.6);
-}
-
-.anterior {
-  left: 1%;
-  transform: translateY(-50%);
-}
-
-.proximo {
-  right: 1%;
-  transform: translateY(-50%);
-}
-
-/* Animações */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  .miniaturas img {
-    width: 70px;
-    height: 50px;
-  }
-
-  .anterior, .proximo {
-    font-size: 2rem;
-    padding: 12px;
-  }
-}
 
 .informacoes {
   display: flex;
@@ -276,11 +201,12 @@ header {
    } 
 
     .informacoes {
-    font-size: 25px;
+    font-size: 20px;
     gap: 10px;
-    flex-wrap: wrap;            /* permite quebrar em 2 linhas */
+    flex-direction: row;
     text-align: center;
-    margin-top: -50px;
+    margin-top: -65px;
+    margin-right: 40px;
   }
 
     .titulo {
@@ -291,8 +217,8 @@ header {
     }
 
     .img-logo {
-      width: 50px;
-      height: 50px;
+      width: 55px;
+      height: 55px;
     }
 
     body {
@@ -319,20 +245,15 @@ header {
 }
 
 /* TÍTULOS ACIMA DAS MÍDIAS */
-.nossa-barbearia {
-  font-size: 32px;
-  color: #B68820;
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 15px;
-}
-
+.nossa-barbearia,
 .texto-barbeiro {
-  font-size: 32px;
+  font-size: 38px; /* destaque */
+  font-weight: 700;
   color: #B68820;
   text-transform: uppercase;
-  text-align: center;
+  letter-spacing: 1px;
   margin-bottom: 15px;
+  text-align: center;
 }
 
 /* BLOCO DO VÍDEO */
@@ -394,17 +315,18 @@ header {
 
 .apresentacao2 {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 40px;
-  padding: 40px 5%;
+  justify-content: center;
+  align-items: stretch;
+  gap: 10px;
+  padding: 20px;
+  flex-direction: row;
   color: white;
 }
 
 .box {
   flex: 1;
   background: rgba(255, 255, 255, 0.05);
-  padding: 20px;
+  padding: 15px;
   border-radius: 10px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.5);
   border: 2px solid rgba(255,255,255,0.1);
@@ -417,21 +339,18 @@ header {
 }
 
 .box h1 {
-  font-size: 32px;
+  font-size: 30px;
+  font-weight: 700;
   color: #B68820;
-  margin-bottom: 10px;
-  letter-spacing: 1px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
 }
 
 .box p {
-  font-size: 18px;
+  font-size: 16px;
+  color: #fff;
   line-height: 1.6;
 }
-
-
-
-
-
 
 
 
@@ -603,7 +522,7 @@ header {
 
 .galeria-grid img:hover {
   transform: scale(1.04);
-  border-color: #c6a25e;
+  border-color: #B68820;
   box-shadow: 0 8px 20px rgba(0,0,0,0.5);
 }
 
@@ -614,5 +533,107 @@ header {
   }
 }
 
+#fundoParticulas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: #0f0f0f; /* fundo neutro */
+}
 
 
+/* --- MOSAICO DE CORTES (estilo do exemplo enviado) --- */
+
+.cortes-section {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.mosaico-cortes {
+  width: 330px;
+  position: relative;
+  height: 430px;
+}
+
+.mosaico-cortes .foto {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  position: absolute;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 2px 5px #B68820;
+}
+
+.mosaico-cortes .foto:hover {
+  transform: scale(1.08);
+  z-index: 10;
+}
+
+/* --- POSIÇÕES DAS FOTOS (estilo espalhado igual ao modelo) --- */
+.f1 { top: 0; left: 0; transform: rotate(-3deg); }
+.f2 { top: 0; right: 0; transform: rotate(2deg); }
+.f3 { top: 140px; left: 80px; transform: rotate(-1deg); }
+
+.f4 { top: 220px; left: -10px; transform: rotate(3deg); }
+.f5 { top: 220px; right: -10px; transform: rotate(-2deg); }
+
+.f6 { top: 320px; left: 40px; transform: rotate(2deg); }
+.f7 { top: 320px; right: 40px; transform: rotate(-3deg); }
+
+.f8 { top: 120px; right: 110px; transform: rotate(4deg); }
+.f9 { top: 110px; left: -40px; transform: rotate(-4deg); }
+
+
+
+
+@media (max-width: 900px) {
+
+  h1 { font-size: 34px; }
+  h2 { font-size: 22px; }
+
+  .titulo {
+    font-size: 36px;
+    margin-top: 20px;
+  }
+
+  .nossa-barbearia,
+  .texto-barbeiro {
+    font-size: 28px;
+  }
+
+  .box h1 {
+    font-size: 24px;
+  }
+
+  p, .box p {
+    font-size: 15px;
+  }
+}
+
+.mapa-container {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* centraliza */
+    margin-top: 20px;
+}
+
+.mapa-container iframe {
+    width: 90%;            /* deixa com bordas laterais */
+    max-width: 600px;      /* tamanho bonito e centralizado */
+    height: 350px;
+    border: 0;
+    border-radius: 10px;
+}
+
+.como-chegar {
+    font-size: 28px;
+    color: #B68820;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 15px;
+}

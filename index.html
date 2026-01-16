@@ -4,16 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Jolly+Lodger&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="9.styles.css">
     <title>Barbearia Estilo MK</title>
 </head>
 
 <body>
+      <canvas id="fundoParticulas"></canvas>
     <header>
         <img src="img/LogoMK.jpg" class="img-logo">
     </header>
@@ -24,7 +21,7 @@
 </header>
 
 <!-- ÁREAS QUE VÃO APARECER AO CLICAR -->
-<div id="informacoes" class="info-box">📞 Whatsapp: (85) 99788-0816 <br> 🕢 Ter - Sáb: 09h às 19h <br> 💰 Corte: R$30 / Barba: R$30 / Nevou: R$100 </div>
+<div id="informacoes" class="info-box">📞 Whatsapp: (85) 99788-0816 <br> 🕢 Ter - Sáb: 09h às 19h <br> 💰 Corte: R$30 / Barba: R$30 / Nevou: R$110... </div>
 
 <!-- AGENDAR: formulário avançado -->
 <div id="agendar" class="info-box">
@@ -94,8 +91,18 @@
 
     <h1 class="titulo">Barbearia Estilo MK</h1>
 
-    <section class="cortes-section">
-  <button class="btn-ver-imagens" onclick="abrirGaleria()">Ver Nossos Cortes</button>
+<section class="cortes-section">
+  <div class="mosaico-cortes">
+      <img src="img/corte1.jpg" class="foto f1">
+      <img src="img/corte2.jpg" class="foto f2">
+      <img src="img/corte3.jpg" class="foto f3">
+      <img src="img/corte4.jpg" class="foto f4">
+      <img src="img/corte5.jpg" class="foto f5">
+      <img src="img/corte6.jpeg" class="foto f6">
+      <img src="img/corte7.jpeg" class="foto f7">
+      <img src="img/corte8.jpg" class="foto f8">
+      <img src="img/corte9.jpg" class="foto f9">
+  </div>
 </section>
 
 
@@ -123,38 +130,19 @@
 
     <div class="box">
         <h1>Cabelo</h1>
-        <p>Degradê, social, todo na tesoura, raspar na máquina, selagem térmica, hidratação e disfarce de brancos. Não vai faltar nada para o visual ficar em dia!</p>
+        <p>Degradê, social, todo na tesoura, raspar na máquina, hidratação e disfarce de brancos. Não vai faltar nada para o visual ficar em dia!</p>
     </div>
 </div>
 
-  <!-- MODAL GALERIA – VERSÃO GRID -->
-<div id="modalGaleria" class="modal-galeria">
-    <span class="fechar" onclick="fecharModal()">&times;</span>
+  <p class="como-chegar">Como Chegar</p>
 
-    <div class="galeria-grid">
-        <img src="img/corte1.jpg" onclick="abrirSlide(0)">
-        <img src="img/corte2.jpg" onclick="abrirSlide(1)">
-        <img src="img/corte3.jpg" onclick="abrirSlide(2)">
-        <img src="img/corte4.jpg" onclick="abrirSlide(3)">
-        <img src="img/corte5.jpg" onclick="abrirSlide(4)">
-    </div>
-</div>
-
-<!-- SLIDE (CONTINUA O MESMO QUE VOCÊ JÁ TINHA) -->
-<div id="modalSlide" class="modal-galeria">
-    <span class="fechar" onclick="fecharSlide()">&times;</span>
-
-    <span class="anterior" onclick="mudarImagem(-1)">❮</span>
-    <span class="proximo" onclick="mudarImagem(1)">❯</span>
-
-    <div class="modal-conteudo">
-        <img class="imagem-slide" src="img/corte1.jpg">
-        <img class="imagem-slide" src="img/corte2.jpg">
-        <img class="imagem-slide" src="img/corte3.jpg">
-        <img class="imagem-slide" src="img/corte4.jpg">
-        <img class="imagem-slide" src="img/corte5.jpg">
-    </div>
-</div>
+  <div class="mapa-container">
+<iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d900.690968964857!2d-38.53756773046621!3d-3.7701756615599664!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zM8KwNDYnMTIuNiJTIDM4wrAzMicxMi45Ilc!5e1!3m2!1spt-BR!2sbr!4v1765198256547!5m2!1spt-BR!2sbr"
+ allowfullscreen="" 
+ loading="lazy" 
+ referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+  </div>
 
 </body>
     <script src="4scripts.js"></script>
