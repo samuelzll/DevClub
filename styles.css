@@ -61,20 +61,121 @@ h2 {
     margin-top: 60px;
 }
 
-/* MOBILE */
+/* ================================
+   MOBILE – AJUSTE COMPLETO
+================================ */
 @media (max-width: 768px) {
+
+    body {
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    /* TOPO */
+    .topo {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .topo input {
+        width: 100%;
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    /* CONTEÚDO */
     .conteudo {
         flex-direction: column;
+        gap: 25px;
     }
 
     .coluna {
         width: 100%;
     }
 
+    h2 {
+        text-align: center;
+        font-size: 20px;
+    }
+
+    /* INPUTS / SELECT / BOTÕES */
+    input,
+    select,
+    button {
+        width: 100%;
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    button {
+        margin-top: 6px;
+    }
+
+    /* ITENS */
+    .item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px;
+        background: #1e1e1e;
+        border-radius: 6px;
+    }
+
+    .acoes {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+    }
+
+    .acoes button {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+
+    /* TOTAIS */
+    .total {
+        font-size: 18px;
+        text-align: center;
+    }
+
     .soma-final {
         font-size: 22px;
+        margin-top: 30px;
+    }
+
+    /* LOGIN */
+    .login {
+        width: 100%;
+        max-width: 320px;
+        padding: 15px;
+    }
+
+    .login input,
+    .login button {
+        width: 100%;
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    /* EXPORTAR */
+    .exportar {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* GRÁFICO */
+    .grafico {
+        width: 100%;
+        margin: 30px auto;
+    }
+
+    canvas {
+        width: 100% !important;
+        height: 300px !important;
     }
 }
+
 
 /* mantém tudo que você já tinha */
 
