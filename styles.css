@@ -15,6 +15,7 @@ body {
     display: flex;
     gap: 20px;
     margin-bottom: 30px;
+    margin-top: 25px;
     flex-wrap: wrap;
 }
 
@@ -75,6 +76,7 @@ h2 {
     .topo {
         flex-direction: column;
         gap: 10px;
+        margin-top: 25px;
     }
 
     .topo input {
@@ -174,6 +176,17 @@ h2 {
         width: 100% !important;
         height: 300px !important;
     }
+
+    .auth-bar {
+    left: 10px;
+    right: 10px;
+    justify-content: space-between;
+    }
+
+    #userEmail {
+        max-width: 70%;
+    }
+
 }
 
 
@@ -220,24 +233,37 @@ h2 {
 
 
 .auth-bar {
-    position: fixed;
+    position: relative;
     top: 10px;
-    right: 15px;
+    right: 25px;
     background: #222;
     color: #fff;
     padding: 8px 12px;
     border-radius: 6px;
+
     display: flex;
-    gap: 10px;
     align-items: center;
-    z-index: 999;
+    gap: 10px;
+
+    max-width: calc(100vw - 30px);
+    box-sizing: border-box;
 }
+
+/* EMAIL */
+#userEmail {
+    max-width: 180px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+}
+
 
 .auth-bar button {
     background: #e74c3c;
     border: none;
     color: #fff;
-    padding: 5px 10px;
+    padding: 2px 6px;
     border-radius: 4px;
     cursor: pointer;
 }
@@ -247,3 +273,5 @@ h2 {
     width: 250px;
     text-align: center;
 }
+
+
