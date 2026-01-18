@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Controle Mensal</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -17,6 +18,7 @@
 
 <!-- LOGIN -->
 <div class="login" id="loginBox">
+    <p> Aqui voçe controla suas finanças</p>
     <input id="email" type="email" placeholder="email">
     <input id="senha" type="password" placeholder="senha">
 
@@ -37,7 +39,7 @@
         <input type="month" id="mes">
     </label>
 
-    <label>Valor de Entrada:
+    <label>Valor de Entrada R$:
         <input type="number" id="entrada">
     </label>
 </div>
@@ -72,13 +74,13 @@
         <div id="listaCredito"></div>
 
         <div class="total">
-            Total cartão: <span id="totalCredito">0,00</span>$
+            Total cartão: <span id="totalCredito">R$ 0,00</span>
         </div>
     </div>
 
     <!-- DEMAIS -->
     <div class="coluna">
-        <h2>Demais gastos:</h2>
+        <h2>Outros gastos:</h2>
 
         <input id="dDesc" placeholder="descrição">
         <input id="dValor" type="number" placeholder="valor">
@@ -103,15 +105,15 @@
         <div id="listaDemais"></div>
 
         <div class="total">
-            Total de demais: <span id="totalDemais">0,00</span>$
+            Total de Outros: <span id="totalDemais">R$ 0,00</span>
         </div>
     </div>
 
 </div>
 
 <div class="soma-final">
-  <div class="total-soma">  Soma total : <span id="somaTotal">0,00 </span><br> </div> 
-  <div class="final-saldo">   Saldo final: <span id="saldoFinal">0,00</span> </div> 
+  <div class="total-soma">  Soma total : <span id="somaTotal">R$ 0,00 </span><br> </div> 
+  <div class="final-saldo">   Saldo final: <span id="saldoFinal">R$ 0,00</span> </div> 
 </div>
 
 <div class="exportar">
