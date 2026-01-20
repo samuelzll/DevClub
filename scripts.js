@@ -12,7 +12,7 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
-
+const db = firebase.firestore();
 
 
 /************************************************
@@ -53,54 +53,107 @@ const graficoMensal = document.getElementById("graficoMensal");
 /************************************************
  * CARREGAR / SALVAR
  ************************************************/
-function carregar() {
+async function carregar() {
     const mes = mesInput.value;
-    if (!mes) return;
+    const user = auth.currentUser;
 
-    dados = JSON.parse(localStorage.getItem(mes)) || {
-        entrada: 0,
-        credito: [],
-        demais: []
-    };
+    // Se não tiver mês ou usuário logado, para tudo
+    if (!mes || !user) return; 
 
-    entradaInput.value = dados.entrada || 0;
-    render();
+    // Mostra que está carregando (opcional, mas recomendado)
+    somaTotalEl.textContent = "Carregando...";
+
+    try {
+        // Busca no caminho: usuarios -> ID do usuario -> meses -> 2024-01
+        const docRef = db.collection("usuarios").doc(user.uid).collection("meses").doc(mes);
+        const doc = await docRef.get();
+
+        if (doc.exists) {
+            dados = doc.data();
+        } else {
+            // Se não existir dados para esse mês, inicia zerado
+            dados = {
+                entrada: 0,
+                credito: [],
+                demais: []
+            };
+        }
+        
+        entradaInput.value = dados.entrada || 0;
+        render(); // Atualiza a tela com os dados da nuvem
+
+    } catch (error) {
+        console.error("Erro ao buscar dados:", error);
+        alert("Erro ao carregar dados. Verifique sua internet.");
+    }
 }
+
 
 function salvar() {
-    if (!mesInput.value) return;
+    const user = auth.currentUser;
+    const mes = mesInput.value;
+
+    if (!mes || !user) return;
+
     dados.entrada = Number(entradaInput.value) || 0;
-    localStorage.setItem(mesInput.value, JSON.stringify(dados));
+
+    // Salva no Firestore
+    db.collection("usuarios").doc(user.uid).collection("meses").doc(mes)
+        .set(dados)
+        .then(() => {
+            console.log("Salvo com sucesso na nuvem!");
+        })
+        .catch((error) => {
+            console.error("Erro ao salvar: ", error);
+        });
 }
+
 
 /************************************************
  * PARCELAS AUTOMÁTICAS
  ************************************************/
-function gerarParcelas(tipo, item) {
+async function gerarParcelas(tipo, item) {
     if (item.parcelas <= 1) return;
+    const user = auth.currentUser;
+    if (!user) return;
 
+    // Loop pelas próximas parcelas
     for (let i = 2; i <= item.parcelas; i++) {
-        const data = new Date(mesInput.value + "-01");
+        const data = new Date(mesInput.value + "-01T12:00:00"); // Fix fuso horário
         data.setMonth(data.getMonth() + (i - 1));
-
         const novoMes = data.toISOString().slice(0, 7);
 
-        const futuro = JSON.parse(localStorage.getItem(novoMes)) || {
-            entrada: 0,
-            credito: [],
-            demais: []
-        };
+        const docRef = db.collection("usuarios").doc(user.uid).collection("meses").doc(novoMes);
 
-        futuro[tipo].push({
-            desc: item.desc,
-            valor: item.valor,       // 🔥 mesmo valor
-            parcelas: item.parcelas,
-            parcelaAtual: i
-        });
+        try {
+            // 1. Pega os dados do mês futuro
+            const docSnapshot = await docRef.get();
+            let futuro;
 
-        localStorage.setItem(novoMes, JSON.stringify(futuro));
+            if (docSnapshot.exists) {
+                futuro = docSnapshot.data();
+            } else {
+                futuro = { entrada: 0, credito: [], demais: [] };
+            }
+
+            // 2. Adiciona a parcela
+            futuro[tipo].push({
+                desc: item.desc,
+                valor: item.valor,
+                parcelas: item.parcelas,
+                parcelaAtual: i
+            });
+
+            // 3. Salva de volta na nuvem
+            await docRef.set(futuro);
+            console.log(`Parcela ${i} salva em ${novoMes}`);
+
+        } catch (error) {
+            console.error("Erro ao gerar parcelas:", error);
+        }
     }
 }
+
 
 
 /************************************************
@@ -371,12 +424,16 @@ auth.onAuthStateChanged(user => {
         appContent.style.display = "block";
         authBar.style.display = "flex";
         userEmail.textContent = user.email;
+        
+        // 🔥 ADICIONE ISTO: Carrega os dados assim que logar
+        carregar(); 
     } else {
         loginBox.style.display = "block";
         appContent.style.display = "none";
         authBar.style.display = "none";
     }
 });
+
 
 
 function logout() {
