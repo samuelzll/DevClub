@@ -8,7 +8,7 @@ body {
     padding: 20px;
     background: #2b2b2b;
     color: #fff;
-    font-family: "Russo One", sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 p {
@@ -17,6 +17,7 @@ p {
     color: #ddd;
     font-size: 34px;
     margin-bottom: 10px;
+    font-family: "Russo One", sans-serif;
 }
 
 .topo {
@@ -52,15 +53,27 @@ button:active {
 }
 
 .coluna {
-    flex: 1;
     background: #1e1e1e;
-    padding: 15px;
-    border-radius: 8px;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
 }
+
+.coluna,
+button {
+    transition: all 0.25s ease;
+}
+
+.coluna:hover {
+    transform: translateY(-4px);
+}
+
+
 
 h2 {
     font-weight: normal;
     color: beige;
+    font-family: "Russo One", sans-serif;
 }
 
 .total {
@@ -72,11 +85,12 @@ h2 {
     color: #f1c40f;
 }
 
-
 .soma-final {
-    text-align: center;
-    font-size: 26px;
-    margin-top: 60px;
+    background: #1e1e1e;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    margin-top: 30px;
 }
 
 .final-saldo span {
@@ -205,9 +219,9 @@ h2 {
     }
 
     .auth-bar {
-    left: 10px;
-    right: 10px;
-    justify-content: space-between;
+        left: 10px;
+        right: 10px;
+        justify-content: space-between;
     }
 
     #userEmail {
@@ -215,7 +229,6 @@ h2 {
     }
 
 }
-
 
 /* mantém tudo que você já tinha */
 
@@ -252,8 +265,7 @@ h2 {
 }
 
 .final-saldo{
-    font-weight: bold;
-    margin-top: 20px;
+    font-size: 32px;;
 }
 
 
@@ -293,8 +305,47 @@ h2 {
     cursor: pointer;
 }
 
+
+
 .login {
-    margin: 50px auto;
-    width: 250px;
+    margin: 80px auto;
+    width: 100%;
+    max-width: 360px;
+    background: #1e1e1e;
+    padding: 30px 25px;
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
     text-align: center;
+}
+
+.login p {
+    font-size: 20px;
+    margin-bottom: 25px;
+    color: #f1f1f1;
+}
+
+.login input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    background: #2a2a2a;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 15px;
+}
+
+.login input::placeholder {
+    color: #aaa;
+}
+
+.login button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
