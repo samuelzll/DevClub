@@ -141,11 +141,11 @@ async function gerarParcelas(tipo, item) {
                 desc: item.desc,
                 valor: item.valor,
                 parcelas: item.parcelas,
-                parcelaAtual: i
+                parcelasAtual: i
             });
 
             // 3. Salva de volta na nuvem
-            await docRef.set(futuro);
+            await docRef.set(futuro, { merge: true });
             console.log(`Parcela ${i} salva em ${novoMes}`);
 
         } catch (error) {
@@ -221,7 +221,7 @@ function editar(tipo, index) {
     const novoValor = prompt("Valor:", item.valor);
     if (novoValor === null || isNaN(novoValor)) return;
 
-    const novaParcela = prompt("Parcelas (ex: 1/5):", item.parcela || "");
+    const novaParcela = prompt("Parcelas (ex: 1/5):", item.parcelas || "");
 
     item.desc = novaDesc.trim();
     item.valor = Number(novoValor);
@@ -299,7 +299,6 @@ function atualizarTotais(tc, td) {
 
     saldoFinalEl.className = saldo < 0 ? "negativo" : "positivo";
 
-    salvar();
 }
 
 /************************************************

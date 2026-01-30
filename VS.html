@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VS Trufas</title>
+    <link rel="stylesheet" href="VS.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="topo">
+        <img src="img/logo SV.2.png" alt="Logo VS Trufas" class="logo">
+
+        <nav class="informacoes">
+            <a href="#" data-info="contatos">Contatos</a>
+            <a href="#" data-info="localizacao">Localização</a>
+        </nav>
+
+        <button class="btn-ver-carrinho" onclick="abrirCarrinho()">
+            🛒(<span id="contador">0</span>)
+</button>
+
+    </header>
+
+    <!-- INFO BOXES -->
+    <div id="contatos" class="info-box">📞 WhatsApp: (85) 98833-8580</div>
+    <div id="localizacao" class="info-box">📍 Vila União - Rua Almirante Rufino</div>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+
+        <section class="apresentacao">
+            <h1 class="titulo">VS Trufas</h1>
+            <p class="texto1">
+                Bem-vindo à VS Trufas! Cada trufa é preparada com carinho e ingredientes
+                selecionados para garantir sabor, qualidade e aquele gostinho caseiro
+                que todo mundo ama.
+            </p>
+        </section>
+
+        <section>
+            <h2 class="titulo-galeria">Nossas Trufas</h2>
+
+            <div class="galeria-trufas">
+
+                <div class="foto-trufas" data-img="img/trufa1.png">
+                    <img src="img/trufa1.png" alt="Trufa de Maracujá">
+                    <h3>Maracujá</h3>
+                    <p>Recheio cremoso de maracujá.</p>
+                    <span class="preco">R$ 4,00</span>
+
+                     <button class="btn-carrinho"
+                        onclick="adicionarCarrinho('Trufa de Maracujá', 4); animarBotao(this); event.stopPropagation();">
+                        Adicionar ao carrinho
+                    </button>
+                </div>
+
+                <div class="foto-trufas" data-img="img/trufa2.png">
+                    <img src="img/trufa2.png" alt="Trufa de Chocolate">
+                    <h3>Chocolate</h3>
+                    <p>Recheio cremoso de chocolate.</p>
+                    <span class="preco">R$ 4,00</span>
+
+                    <button class="btn-carrinho"
+                        onclick="adicionarCarrinho('Trufa de Chocolate', 4); animarBotao(this); event.stopPropagation();">
+                        Adicionar ao carrinho
+                    </button>
+ 
+                </div>
+
+                <div class="foto-trufas" data-img="img/trufa3.png">
+                    <img src="img/trufa3.png" alt="Trufa de Ninho">
+                    <h3>Ninho</h3>
+                    <p>Recheio cremoso de ninho.</p>
+                    <span class="preco">R$ 4,00</span>
+
+                    <button class="btn-carrinho"
+                        onclick="adicionarCarrinho('Trufa de Ninho', 4); animarBotao(this); event.stopPropagation();">
+                        Adicionar ao carrinho
+                    </button>
+ 
+                </div>
+
+                <div class="foto-trufas" data-img="img/trufa3.png">
+                    <img src="img/trufa3.png" alt="Escolha os sabores">
+                    <h3>50 trufas</h3>
+                    <p> sabores variados (a consultar)</p>
+                    <span class="preco">R$ 180</span>
+
+                    <button class="btn-carrinho"
+                        onclick="adicionarCarrinho('50 trufas', 180); animarBotao(this); event.stopPropagation();">
+                        Adicionar ao carrinho
+                    </button>
+ 
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- MODAL -->
+    <div id="modalImagem" class="modal">
+        <span class="fechar">&times;</span>
+        <img id="imagemAmpliada" alt="Imagem ampliada da trufa">
+    </div>
+
+    <div id="modalCarrinho" class="modal">
+    <div class="modal-conteudo">
+        <span class="fechar" onclick="fecharCarrinho()">&times;</span>
+
+        <div id="listaCarrinho" class="lista-carrinho"></div>
+
+        <div class="resumo-carrinho">
+            <span>Total</span>
+            <strong id="totalCarrinho">R$ 0,00</strong>
+        </div>
+
+
+        <h3>Dados para entrega (valor a combinar)</h3>
+        <input type="text" id="nome" placeholder="Seu nome">
+        <input type="text" id="endereco" placeholder="Endereço">
+        <input type="text" id="telefone" placeholder="WhatsApp">
+
+        <button onclick="finalizarPedido()">Finalizar pedido</button>
+    </div>
+</div>
+
+
+    <script src="VS.js"></script>
+</body>
+</html>
