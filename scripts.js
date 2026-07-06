@@ -80,15 +80,53 @@ async function carregar() {
         if (doc.exists) {
             dados = doc.data();
 
-                dados.credito = (dados.credito || []).map(item => ({
-                    ...item,
-                    pago: item.pago ?? false
-                }));
+let alterou = false;
 
-                dados.demais = (dados.demais || []).map(item => ({
-                    ...item,
-                    pago: item.pago ?? false
-                }));
+dados.credito = (dados.credito || []).map(item => {
+
+    if(item.parcelaAtual === undefined){
+
+        alterou = true;
+
+    }
+
+    return{
+
+        ...item,
+
+        pago:item.pago ?? false,
+
+        parcelaAtual:item.parcelaAtual ?? item.parcelasAtual ?? 1
+
+    }
+
+});
+
+dados.demais = (dados.demais || []).map(item => {
+
+    if(item.parcelaAtual === undefined){
+
+        alterou = true;
+
+    }
+
+    return{
+
+        ...item,
+
+        pago:item.pago ?? false,
+
+        parcelaAtual:item.parcelaAtual ?? item.parcelasAtual ?? 1
+
+    }
+
+});
+
+if(alterou){
+
+    salvar();
+
+}
         } else {
             // Se não existir dados para esse mês, inicia zerado
             dados = {
