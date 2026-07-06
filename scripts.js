@@ -79,6 +79,16 @@ async function carregar() {
 
         if (doc.exists) {
             dados = doc.data();
+
+                dados.credito = (dados.credito || []).map(item => ({
+                    ...item,
+                    pago: item.pago ?? false
+                }));
+
+                dados.demais = (dados.demais || []).map(item => ({
+                    ...item,
+                    pago: item.pago ?? false
+                }));
         } else {
             // Se não existir dados para esse mês, inicia zerado
             dados = {

@@ -150,30 +150,57 @@ h2 {
         padding: 10px;
     }
 
+    .acoes button{
+    width:auto;
+    }
+
     button {
         margin-top: 6px;
     }
 
     /* ITENS */
-    .item {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 8px;
-        background: #1e1e1e;
-        border-radius: 6px;
-    }
+.item{
 
-    .acoes {
-        width: 100%;
-        display: flex;
-        justify-content: flex-end;
-        gap: 10px;
-    }
+    flex-direction:column;
 
-    .acoes button {
-        font-size: 14px;
-        padding: 6px 10px;
-    }
+    align-items:stretch;
+
+    gap:15px;
+
+}
+
+.info{
+
+    width:100%;
+
+}
+
+.acoes{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:8px;
+
+    flex-wrap:wrap;
+
+}
+
+.acoes button{
+
+    flex:1;
+
+}
+
+.btnPago,
+.btnPendente{
+
+    width:100%;
+
+}
 
     /* TOTAIS */
     .total {
@@ -404,6 +431,10 @@ h2 {
     margin-bottom:10px;
 }
 
+.info{
+    flex:1;
+}
+
 .acoes{
     display:flex;
     align-items:center;
@@ -415,7 +446,9 @@ h2 {
     color:white;
     border:none;
     border-radius:20px;
-    padding:7px 14px;
+    padding:6px 10px;
+    font-size:13px;
+    white-space:nowrap;
     cursor:pointer;
 }
 
@@ -424,7 +457,9 @@ h2 {
     color:white;
     border:none;
     border-radius:20px;
-    padding:7px 14px;
+    padding:6px 10px;
+    font-size:13px;
+    white-space:nowrap;
     cursor:pointer;
 }
 
@@ -445,6 +480,16 @@ h2 {
     gap:18px;
 
     margin-bottom:30px;
+
+}
+
+@media(max-width:768px){
+
+.cardsResumo{
+
+grid-template-columns:1fr;
+
+}
 
 }
 
@@ -561,5 +606,27 @@ h2 {
     text-align:center;
 
     color:#cfcfcf;
+
+}
+
+@media(max-width:768px){
+
+.progressoTitulo{
+
+font-size:15px;
+
+}
+
+.barraProgresso{
+
+height:16px;
+
+}
+
+.progressoTexto{
+
+font-size:14px;
+
+}
 
 }
