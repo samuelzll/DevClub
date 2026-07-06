@@ -47,6 +47,15 @@ const totalCreditoEl = document.getElementById("totalCredito");
 const totalDemaisEl = document.getElementById("totalDemais");
 const somaTotalEl = document.getElementById("somaTotal");
 const saldoFinalEl = document.getElementById("saldoFinal");
+const cardEntrada = document.getElementById("cardEntrada");
+const cardCredito = document.getElementById("cardCredito");
+const cardDemais = document.getElementById("cardDemais");
+const cardPago = document.getElementById("cardPago");
+const cardPendente = document.getElementById("cardPendente");
+const cardSaldo = document.getElementById("cardSaldo");
+const barraUso = document.getElementById("barraUso");
+const porcentagemUso = document.getElementById("porcentagemUso");
+const textoProgresso = document.getElementById("textoProgresso");
 
 const graficoMensal = document.getElementById("graficoMensal");
 
@@ -141,9 +150,9 @@ async function gerarParcelas(tipo, item) {
                 desc: item.desc,
                 valor: item.valor,
                 parcelas: item.parcelas,
-                parcelasAtual: i
+                parcelaAtual: i,
+                pago: false
             });
-
             // 3. Salva de volta na nuvem
             await docRef.set(futuro, { merge: true });
             console.log(`Parcela ${i} salva em ${novoMes}`);
@@ -167,10 +176,11 @@ function addCredito() {
 
     const item = {
         desc: ccDesc.value.trim(),
-        valor: valor,              // 🔥 valor cheio
+        valor: valor,
         parcelas: parcelas,
-        parcelaAtual: 1
-    };
+        parcelaAtual: 1,
+        pago: false
+};
 
     dados.credito.push(item);
     gerarParcelas("credito", item);
@@ -188,11 +198,11 @@ function addDemais() {
 
     const item = {
         desc: dDesc.value.trim(),
-        valor: Number(dValor.value), // 🔥 valor cheio
+        valor: Number(dValor.value),
         parcelas: parcelas,
-        parcelaAtual: 1
+        parcelaAtual: 1,
+        pago: false
     };
-
     dados.demais.push(item);
     gerarParcelas("demais", item);
 
@@ -221,11 +231,17 @@ function editar(tipo, index) {
     const novoValor = prompt("Valor:", item.valor);
     if (novoValor === null || isNaN(novoValor)) return;
 
-    const novaParcela = prompt("Parcelas (ex: 1/5):", item.parcelas || "");
-
     item.desc = novaDesc.trim();
     item.valor = Number(novoValor);
-    item.parcela = novaParcela.trim();
+
+    salvar();
+    render();
+}
+
+function alternarPago(tipo, index) {
+    const item = dados[tipo][index];
+
+    item.pago = !item.pago;
 
     salvar();
     render();
@@ -247,35 +263,80 @@ function render() {
     dados.credito.forEach((i, idx) => {
         totalCredito += i.valor;
         htmlCredito += `
-            <div class="item">
-                <span>${i.desc} - ${i.valor.toFixed(2)} ${
-    i.parcelas > 1 ? `(${i.parcelaAtual}/${i.parcelas})` : "(À vista)"
-}
-</span>
-                <div class="acoes">
-                    <button onclick="editar('credito', ${idx})">✏️</button>
-                    <button onclick="remover('credito', ${idx})">❌</button>
-                </div>
-            </div>
-        `;
+<div class="item">
+
+    <div class="info">
+
+        <div class="titulo">
+            ${i.desc}
+        </div>
+
+        <div class="valor">
+            R$ ${i.valor.toFixed(2)}
+            ${i.parcelas > 1
+                ? `(${i.parcelaAtual}/${i.parcelas})`
+                : "(À vista)"}
+        </div>
+
+    </div>
+
+    <div class="acoes">
+
+        <button
+            class="${i.pago ? 'btnPago' : 'btnPendente'}"
+            onclick="alternarPago('credito', ${idx})">
+
+            ${i.pago ? "🟢 Pago" : "🟠 Pendente"}
+
+        </button>
+
+        <button onclick="editar('credito', ${idx})">✏️</button>
+        <button onclick="remover('credito', ${idx})">❌</button>
+
+    </div>
+
+</div>
+`;
     });
 
 dados.demais.forEach((i, idx) => {
     totalDemais += i.valor;
     htmlDemais += `
-        <div class="item">
-            <span>
-                ${i.desc} - ${i.valor.toFixed(2)}
-                ${i.parcelas > 1 ? `(${i.parcelaAtual}/${i.parcelas})` : "(À vista)"}
-            </span>
-            <div class="acoes">
-                <button onclick="editar('demais', ${idx})">✏️</button>
-                <button onclick="remover('demais', ${idx})">❌</button>
-            </div>
-        </div>
-    `;
-});
+<div class="item">
 
+    <div class="info">
+
+        <div class="titulo">
+            ${i.desc}
+        </div>
+
+        <div class="valor">
+            R$ ${i.valor.toFixed(2)}
+            ${i.parcelas > 1
+                ? `(${i.parcelaAtual}/${i.parcelas})`
+                : "(À vista)"}
+        </div>
+
+    </div>
+
+    <div class="acoes">
+
+        <button
+            class="${i.pago ? 'btnPago' : 'btnPendente'}"
+            onclick="alternarPago('demais', ${idx})">
+
+            ${i.pago ? "🟢 Pago" : "🟠 Pendente"}
+
+        </button>
+
+        <button onclick="editar('demais', ${idx})">✏️</button>
+        <button onclick="remover('demais', ${idx})">❌</button>
+
+    </div>
+
+</div>
+`;
+});
 
     listaCredito.innerHTML = htmlCredito;
     listaDemais.innerHTML = htmlDemais;
@@ -288,16 +349,78 @@ dados.demais.forEach((i, idx) => {
  * TOTAIS / SALDO
  ************************************************/
 function atualizarTotais(tc, td) {
+
     totalCreditoEl.textContent = tc.toFixed(2).replace(".", ",");
     totalDemaisEl.textContent = td.toFixed(2).replace(".", ",");
 
     const soma = tc + td;
+
     somaTotalEl.textContent = soma.toFixed(2).replace(".", ",");
 
     const saldo = (Number(entradaInput.value) || 0) - soma;
+
     saldoFinalEl.textContent = saldo.toFixed(2).replace(".", ",");
 
     saldoFinalEl.className = saldo < 0 ? "negativo" : "positivo";
+
+
+
+    let pago = 0;
+
+    dados.credito.forEach(i=>{
+        if(i.pago) pago += i.valor;
+    });
+
+    dados.demais.forEach(i=>{
+        if(i.pago) pago += i.valor;
+    });
+
+    const pendente = soma - pago;
+
+
+
+    cardEntrada.textContent = "R$ " + (Number(entradaInput.value)||0).toFixed(2);
+
+    cardCredito.textContent = "R$ " + tc.toFixed(2);
+
+    cardDemais.textContent = "R$ " + td.toFixed(2);
+
+    cardPago.textContent = "R$ " + pago.toFixed(2);
+
+    cardPendente.textContent = "R$ " + pendente.toFixed(2);
+
+    cardSaldo.textContent = "R$ " + saldo.toFixed(2);
+
+    const entrada = Number(entradaInput.value) || 0;
+
+let porcentagem = 0;
+
+if (entrada > 0) {
+    porcentagem = (soma / entrada) * 100;
+}
+
+barraUso.style.width = Math.min(porcentagem, 100) + "%";
+
+porcentagemUso.textContent = porcentagem.toFixed(0) + "%";
+
+textoProgresso.textContent =
+`R$ ${soma.toFixed(2)} de R$ ${entrada.toFixed(2)}`;
+
+if (porcentagem < 70) {
+
+    barraUso.style.background = "#2ecc71";
+
+}
+else if (porcentagem < 90){
+
+    barraUso.style.background = "#f1c40f";
+
+}
+else{
+
+    barraUso.style.background = "#e74c3c";
+
+}
 
 }
 
@@ -355,11 +478,11 @@ function exportarExcel() {
     let csv = "Tipo,Descrição,Valor,Parcelas\n";
 
     dados.credito.forEach(i => {
-        csv += `Cartão,${i.desc},${i.valor},${i.parcela || ""}\n`;
+        csv += `Cartão,${i.desc},${i.valor},${i.parcelaAtual}/${i.parcelas}\n`;
     });
 
     dados.demais.forEach(i => {
-        csv += `Demais,${i.desc},${i.valor},${i.parcela || ""}\n`;
+        csv += `Demais,${i.desc},${i.valor},${i.parcelaAtual}/${i.parcelas}\n`;
     });
 
     const blob = new Blob([csv], { type: "text/csv" });

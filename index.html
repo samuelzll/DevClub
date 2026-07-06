@@ -35,13 +35,51 @@
 
 
 <div class="topo">
-    <label>Mês:
-        <input type="month" id="mes">
-    </label>
 
-    <label>Valor de Entrada R$:
+    <div class="campo">
+        <label>Mês</label>
+        <input type="month" id="mes">
+    </div>
+
+    <div class="campo">
+        <label>Valor de Entrada</label>
         <input type="number" id="entrada">
-    </label>
+    </div>
+
+</div>
+
+<div class="cardsResumo">
+
+    <div class="cardResumo">
+        <h3>💰 Entrada</h3>
+        <span id="cardEntrada">R$ 0,00</span>
+    </div>
+
+    <div class="cardResumo">
+        <h3>💳 Cartão</h3>
+        <span id="cardCredito">R$ 0,00</span>
+    </div>
+
+    <div class="cardResumo">
+        <h3>🧾 Outros</h3>
+        <span id="cardDemais">R$ 0,00</span>
+    </div>
+
+    <div class="cardResumo">
+        <h3>🟢 Pago</h3>
+        <span id="cardPago">R$ 0,00</span>
+    </div>
+
+    <div class="cardResumo">
+        <h3>🟠 Pendente</h3>
+        <span id="cardPendente">R$ 0,00</span>
+    </div>
+
+    <div class="cardResumo">
+        <h3>💵 Saldo</h3>
+        <span id="cardSaldo">R$ 0,00</span>
+    </div>
+
 </div>
 
 <div class="conteudo">
@@ -107,6 +145,23 @@
         <div class="total">
             Total de Outros: <span id="totalDemais">R$ 0,00</span>
         </div>
+    </div>
+
+</div>
+
+<div class="progressoContainer">
+
+    <div class="progressoTitulo">
+        <span>Orçamento utilizado</span>
+        <span id="porcentagemUso">0%</span>
+    </div>
+
+    <div class="barraProgresso">
+        <div id="barraUso"></div>
+    </div>
+
+    <div class="progressoTexto" id="textoProgresso">
+        R$ 0,00 de R$ 0,00
     </div>
 
 </div>

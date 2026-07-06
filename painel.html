@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel Financeiro</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <h2>Painel Financeiro</h2>
+
+  <section>
+    <h3>➕ Nova Entrada</h3>
+    <input id="descEntrada" placeholder="Descrição">
+    <input id="valorEntrada" type="number" placeholder="Valor">
+    <button onclick="novaEntrada()">Salvar Entrada</button>
+  </section>
+
+  <section>
+    <h3>➖ Nova Saída</h3>
+    <input id="descSaida" placeholder="Descrição">
+    <input id="valorSaida" type="number" placeholder="Valor">
+    <button onclick="novaSaida()">Salvar Saída</button>
+  </section>
+
+  <section>
+    <h3>📊 Resumo</h3>
+    <p>Entradas: R$ <span id="totalEntradas">0</span></p>
+    <p>Saídas: R$ <span id="totalSaidas">0</span></p>
+    <p><strong>Lucro: R$ <span id="lucro">0</span></strong></p>
+  </section>
+
+  <section>
+  <h3>📋 Registros</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tipo</th>
+        <th>Descrição</th>
+        <th>Valor (R$)</th>
+        <th>Ação</th>
+      </tr>
+    </thead>
+    <tbody id="listaRegistros"></tbody>
+  </table>
+</section>
+
+<button onclick="logout()">Sair</button>
+
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+<!-- Seu Firebase -->
+<script src="firebase.js"></script>
+
+<!-- Seu código -->
+<script src="admin.js"></script>
+
+</body>
+</html>
